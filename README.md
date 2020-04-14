@@ -8,7 +8,7 @@ The docker image(s) involved are custom built for this particular usecase.
 We will now build the docker image for this usecase.
 
 ```
-git clone https://github.com/krishvoor/h2o_recipe_ocp
+git clone https://github.com/santosh2kumar/h2o_ocp
 cd $PWD/h2o_recipe_ocp/docker/
 docker build -t h2o:ppc64le .
 cd ../
@@ -26,28 +26,28 @@ oc create -f h2o-deployment.yaml
 Upon successfully creation of respective Service/Deployment, you will see the following Output as -
 
 ```
-[root@p1216-kvm1 h2o_recipe_ocp]# oc create -f  h2o-service.yaml
+[root@p1216-kvm1 h2o_ocp]# oc create -f  h2o-service.yaml
 service/h2o created
-[root@p1216-kvm1 h2o_recipe_ocp]# oc create -f h2o-deployment.yaml 
+[root@p1216-kvm1 h2o_ocp]# oc create -f h2o-deployment.yaml 
 deployment.extensions/h2o created
-[root@p1216-kvm1 h2o_recipe_ocp]#
+[root@p1216-kvm1 h2o_ocp]#
 ```
 
-To check the status of pods in your desired namespace issue the following
+To check the status of pods issue the following
 ```
-[root@p1216-kvm1 h2o_recipe_ocp]# oc get po -n harsha
+[root@p1216-kvm1 h2o_ocp]# oc get po
 NAME                   READY     STATUS    RESTARTS   AGE
 h2o-5fcc88f885-8jdck   1/1       Running   0          1m
-[root@p1216-kvm1 h2o_recipe_ocp]# 
+[root@p1216-kvm1 h2o_ocp# 
 ```
 
 We will now login to the container and run sample example -
 
 ```
-[root@p1216-kvm1 h2o_recipe_ocp]# oc get po -n harsha
+[root@p1216-kvm1 h2o_ocp]# oc get po
 NAME                   READY     STATUS    RESTARTS   AGE
 h2o-5fcc88f885-8jdck   1/1       Running   0          1m
-[root@p1216-kvm1 h2o_recipe_ocp]# oc rsh h2o-5fcc88f885-8jdck
+[root@p1216-kvm1 h2o_ocp]# oc rsh h2o-5fcc88f885-8jdck
 $ ls   	
 Customer_Retention_Test.csv  Main.class  Main.java  README.txt	example.csv  license.sig  mojo2-runtime-javadoc.jar  mojo2-runtime.jar	pipeline.mojo  run_example.sh  test_run.sh
 $ ./run_example.sh
@@ -83,4 +83,3 @@ $
 
 ```
 
-The results tells us that we are 99.86% Satisfied with result & 0.13% Dissatisfied with the result
