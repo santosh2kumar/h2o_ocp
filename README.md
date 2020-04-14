@@ -9,7 +9,7 @@ We will now build the docker image for this usecase.
 
 ```
 git clone https://github.com/santosh2kumar/h2o_ocp
-cd $PWD/h2o_recipe_ocp/docker/
+cd $PWD/h2o_ocp/docker/
 docker build -t h2o:ppc64le .
 cd ../
 ```
