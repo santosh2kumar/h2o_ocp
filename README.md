@@ -19,7 +19,7 @@ cd ../
 We will now look how to deploy the service/deployment files.
 
 ```
-oc create -f  h2o-service.yaml
+oc create -f h2o-service.yaml
 oc create -f h2o-deployment.yaml
 ```
 
